@@ -4,7 +4,8 @@ The *ESWC Publicity Tools* are a set of Python scripts that allow you to send em
 
 To run the service you have to call the *run.py* script as follows:
 
-```python run.py
+```
+python run.py
     <audience> <call-type> <emails-file> <call-file>
     <conf-file> <n-emails-per-turn> <sleeping-time>
 ```
@@ -23,14 +24,16 @@ The parameters are:
 
 A file "data.json" will be created once you will run the script "run.py" for the first time. All the other executions simply modify such file. For instance, if you call the script as follows:
 
-```python run.py
+```
+python run.py
     conference first-call test-emails.csv test-message.txt
     test-conf.json 10 60
 ```
 
 what happens is to send the text of the call to all the emails specified (10 emails each minute). The resulting "data.json" will have the following form:
 
-```{
+```
+{
     "conference": {
         "first-call": [
             {
@@ -54,7 +57,8 @@ Note that all the emails that are not accompanied by a "true" value in the email
 
 The JSON format used to store data related with the sending of calls is summarised as follows:
 
-```{
+```
+{
 	"conference" : {
 		"first-call" : [
 			{
@@ -97,14 +101,16 @@ The *audience* and the *call-type* are used to define first- and second-level JS
 
 In order to import such data in a Excel-like stylesheet (such as in Google Docs), we have developed another script called *tocsv.py*. You can call the service as follows:
 
-```python tocsv.py <input-json> <output-csv>
+```
+python tocsv.py <input-json> <output-csv>
 ```
 
 The *input-json* parameter allows you to specify the JSON file (stored according to the format introduced above) to be converted, while *output-csv* refers to the path where the converted CSV file must be stored.
 
 Running this script on the small example in the introductory part of this documentation will result in the creation of the following CSV records:
 
-```mail,conference#first-call
+```
+mail,conference#first-call
 john.doe@example.com,2013-12-10T10:15:00
 ```
 
@@ -113,7 +119,8 @@ john.doe@example.com,2013-12-10T10:15:00
 
 This file describe a list of email to use to send the call. It is a CSV file and it has the following format:
 
-```Mailing list,Use it
+```
+Mailing list,Use it
 john.doe@example.com,true
 jane.doe@example.net,she_considered_our_calls_as_spam
 ```
@@ -125,7 +132,8 @@ In the first cell you have to specify the email address, while in the second cel
 
 This TXT file contains the the subject and the body of the email containing the call. A small example of such file can be defined as follows:
 
-```ESWC 2014 First call for research and in-use papers
+```
+ESWC 2014 First call for research and in-use papers
 Here starts the body of the message.
 Split in two paragraphs.
 ```
@@ -137,7 +145,8 @@ In this file, the first line will be always used as email subject, while all the
 
 This JSON file allows you to specify data for enabling the sending of emails, such as username, password, SMTP server and the sender emails. It has the following format:
 
-```{
+```
+{
 	"user": "john.smith",
     "password": "bestpasswordever",
     "smtp": "your.smtp.server.com",
@@ -155,7 +164,8 @@ In the file *all-mailing-lists.csv* there are listed all the mailing list that w
 
 Every time the script "run.py" is executed, a ".report" file will be stored in order to summarised (in natural language) all the activities done by the script. A typical content of such file is:
 
-```Mail sent to john.doe@example.com
+```
+Mail sent to john.doe@example.com
 Mail sent to jane.doe@example.net
 ```
 
