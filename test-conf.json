@@ -1,0 +1,6 @@
+{
+	"user": "john.smith",
+    "password": "bestpasswordever", 
+    "smtp": "your.smtp.server.com", 
+    "sender": "john.smith@yourprovider.com"
+}
